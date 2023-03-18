@@ -20,7 +20,7 @@
     <link rel="shortcut icon" href="{{asset('assets/images/icons/trolley.png')}}" />
     <title>MSO</title>
   </head>
-  <body class="dark">
+  <body >
     <!--notification-->
     <div class="notification-toast">
       <button class="toast-close-btn">
@@ -61,12 +61,6 @@
         </li>
         <li>
           <h3><a href="#" class="nav-link">WOMEN'S</a></h3>
-        </li>
-        <li>
-          <h3><a href="#" class="nav-link">JEWELRY</a></h3>
-        </li>
-        <li>
-          <h3><a href="#" class="nav-link">PERFUME</a></h3>
         </li>
         <li>
           <h3><a href="#" class="nav-link">BLOG</a></h3>
@@ -127,220 +121,26 @@
           <div class="cats ps-2">
             <h1 class="fw-normal fs-2 mb-5 pb-3">Categories</h1>
 
-            <!--Clothe-->
-            <div>
-              <h5>
-                <a
-                  class="nav-link"
-                  data-bs-toggle="collapse"
-                  href="#collapseExample"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="collapseExample"
-                >
-                  <img
-                    src="{{asset('assets/images/icons/dress.svg')}}"
-                    width="30"
-                    height="30"
-                    alt=""
-                  />
-                  Clothes
-                </a>
-              </h5>
-              <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                  <ul class="list-unstyled ms-4">
-                    <li><a class="nav-link" href="">Shirt</a></li>
-                    <li><a class="nav-link" href="">Shirt & jeans</a></li>
-                    <li><a class="nav-link" href="">Jacket</a></li>
-                    <li><a class="nav-link" href="">Dress & Fork</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!--Footwear-->
-            <div>
-              <h5>
-                <a
-                  class="nav-link"
-                  data-bs-toggle="collapse"
-                  href="#footwaer"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="footwaer"
-                >
-                  <img
-                    src="{{asset('assets/images/icons/shoes.svg')}}"
-                    width="30"
-                    height="30"
-                    alt=""
-                  />
-                  Footwear
-                </a>
-              </h5>
-              <div class="collapse" id="footwaer">
-                <div class="card card-body">
-                  <ul class="list-unstyled ms-4">
-                    <li><a class="nav-link" href="">Sports</a></li>
-                    <li><a class="nav-link" href="">Formal</a></li>
-                    <li><a class="nav-link" href="">Casual</a></li>
-                    <li><a class="nav-link" href="">Safety Shoes</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!--Jewelry-->
-            <div>
-              <h5>
-                <a
-                  class="nav-link"
-                  data-bs-toggle="collapse"
-                  href="#jewelry"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="jewelry"
-                >
-                  <img
-                    src="{{asset('assets/images/icons/jewelry.svg')}}"
-                    width="30"
-                    height="30"
-                    alt=""
-                  />
-                  Jewelry
-                </a>
-              </h5>
-              <div class="collapse" id="jewelry">
-                <div class="card card-body">
-                  <ul class="list-unstyled ms-4">
-                    <li><a class="nav-link" href="">Errings</a></li>
-                    <li><a class="nav-link" href="">Couple Rings</a></li>
-                    <li><a class="nav-link" href="">Necklace</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!--Perfume-->
-            <div>
-              <h5>
-                <a
-                  class="nav-link"
-                  data-bs-toggle="collapse"
-                  href="#Perfume"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="Perfume"
-                >
-                  <img
-                    src="{{asset('assets/images/icons/Perfume.svg')}}"
-                    width="30"
-                    height="30"
-                    alt=""
-                  />
-                  Perfume
-                </a>
-              </h5>
-              <div class="collapse" id="Perfume">
-                <div class="card card-body">
-                  <ul class="list-unstyled ms-4">
-                    <li><a class="nav-link" href="">Clothes Perfume </a></li>
-                    <li><a class="nav-link" href="">Deodorant</a></li>
-                    <li><a class="nav-link" href="">Jacket</a></li>
-                    <li><a class="nav-link" href="">Dress & fork</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!--Cosmetics-->
-            <div>
-              <h5>
-                <a
-                  class="nav-link"
-                  data-bs-toggle="collapse"
-                  href="#Cosmetics"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="Cosmetics"
-                >
-                  <img
-                    src="{{asset('assets/images/icons/Cosmetics.svg')}}"
-                    width="30"
-                    height="30"
-                    alt=""
-                  />
-                  Cosmetics
-                </a>
-              </h5>
-              <div class="collapse" id="Cosmetics">
-                <div class="card card-body">
-                  <ul class="list-unstyled ms-4">
-                    <li><a class="nav-link" href="">Shampoo</a></li>
-                    <li><a class="nav-link" href="">Sun block</a></li>
-                    <li><a class="nav-link" href="">Body wash</a></li>
-                    <li><a class="nav-link" href="">Makeup Kit</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!--Glasses-->
-            <div>
-              <h5>
-                <a
-                  class="nav-link"
-                  data-bs-toggle="collapse"
-                  href="#Glasses"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="Glasses"
-                >
-                  <img
-                    src="{{asset('assets/images/icons/Glasses.svg')}}"
-                    width="30"
-                    height="30"
-                    alt=""
-                  />
-                  Glasses
-                </a>
-              </h5>
-              <div class="collapse" id="Glasses">
-                <div class="card card-body">
-                  <ul class="list-unstyled ms-4">
-                    <li><a class="nav-link" href="">Sunglasses</a></li>
-                    <li><a class="nav-link" href="">Lenses</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!--Bags-->
-            <div>
-              <h5>
-                <a
-                  class="nav-link"
-                  data-bs-toggle="collapse"
-                  href="#Bags"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="Bags"
-                >
-                  <img
-                    src="{{asset('assets/images/icons/bag.svg')}}"
-                    width="30"
-                    height="30"
-                    alt=""
-                  />
-                  Bags
-                </a>
-              </h5>
-              <div class="collapse" id="Bags">
-                <div class="card card-body">
-                  <ul class="list-unstyled ms-4">
-                    <li><a class="nav-link" href="">Shopping Bag</a></li>
-                    <li><a class="nav-link" href="">Gym Backpack</a></li>
-                    <li><a class="nav-link" href="">Purse</a></li>
-                    <li><a class="nav-link" href="">Wallet</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+              @foreach($categories as $cat)
+                  <div>
+                      <h5>
+                          <a
+                              class="nav-link"
+                              role="button"
+                              href="category/{{$cat->id}}"
+                          >
+                              <img
+                                  src="{{asset('assets/images/icons/' . $cat->icon)}}"
+                                  width="30"
+                                  height="30"
+                                  alt=""
+                              />
+                              {{$cat->name}}
+                          </a>
+                      </h5>
+
+                  </div>
+              @endforeach
           </div>
           <div class="bestSeller">
             <h1 class="fw-normal fs-2 mb-5 mt-5 pb-3">BEST SELLERS</h1>
@@ -478,10 +278,9 @@
                 <li><a href="" class="text-uppercase nav-link">Home</a></li>
                 <li><a href="" class="text-uppercase nav-link">Men's</a></li>
                 <li><a href="" class="text-uppercase nav-link">Women's</a></li>
-                <li><a href="" class="text-uppercase nav-link">Jewelry</a></li>
-                <li><a href="" class="text-uppercase nav-link">perfume</a></li>
-                <li><a href="" class="text-uppercase nav-link">Blog</a></li>
+                <li><a href="" class="text-uppercase nav-link">Testimonials</a></li>
                 <li><a href="" class="text-uppercase nav-link">offers</a></li>
+                <li><a href="" class="text-uppercase nav-link">Blog</a></li>
               </ul>
             </div>
           </div>
@@ -509,66 +308,24 @@
           <!-- Start Categories-->
           <div class="our-cats w-100">
             <div class="row">
-              <div class="box-item d-flex gap-2 col-lg-3 col-md-6 col-sm-12">
-                <div class="img">
-                  <img
-                    src="{{asset('assets/images/icons/dress.svg')}}"
-                    width="50"
-                    height="50"
-                    class="img-fluid"
-                    alt=""
-                  />
-                </div>
-                <div class="details">
-                  <h5 class="mb-2">DRESS & FROCK</h5>
-                  <p class="activeP">Show All</p>
-                </div>
-              </div>
-              <div class="box-item d-flex gap-2 col-lg-3 col-md-6 col-sm-12">
-                <div class="img">
-                  <img
-                    src="{{asset('assets/images/icons/coat.svg')}}"
-                    width="50"
-                    height="50"
-                    class="img-fluid"
-                    alt=""
-                  />
-                </div>
-                <div class="details">
-                  <h5 class="mb-2">WINTER WAER</h5>
-                  <p class="activeP">Show All</p>
-                </div>
-              </div>
-              <div class="box-item d-flex gap-2 col-lg-3 col-md-6 col-sm-12">
-                <div class="img">
-                  <img
-                    src="{{asset('assets/images/icons/Glasses.svg')}}"
-                    width="50"
-                    height="50"
-                    class="img-fluid"
-                    alt=""
-                  />
-                </div>
-                <div class="details">
-                  <h5 class="mb-2">GLASSES & LENS</h5>
-                  <p class="activeP">Show All</p>
-                </div>
-              </div>
-              <div class="box-item d-flex gap-2 col-lg-3 col-md-6 col-sm-12">
-                <div class="img">
-                  <img
-                    src="{{asset('assets/images/icons/Shorts.svg')}}"
-                    width="50"
-                    height="50"
-                    class="img-fluid"
-                    alt=""
-                  />
-                </div>
-                <div class="details">
-                  <h5 class="mb-2">SHORTS & JEANS</h5>
-                  <p class="activeP">Show All</p>
-                </div>
-              </div>
+                @foreach($categories as $cat)
+                    <div class="box-item d-flex gap-2 col-lg-3 col-md-6 col-sm-12">
+                        <div class="img">
+                            <img
+                                src="{{asset('assets/images/icons/' . $cat->icon)}}"
+                                width="50"
+                                height="50"
+                                class="img-fluid"
+                                alt=""
+                            />
+                        </div>
+                        <div class="details">
+                            <h5 class="mb-2">{{$cat->name}}</h5>
+                            <a href="category/{{$cat->id}}" class="activeP">Show All</a>
+                        </div>
+                    </div>
+                @endforeach
+
             </div>
           </div>
           <!--End Our Cats-->
@@ -587,7 +344,7 @@
                 <div class="product-box">
                   <div class="img">
                     <img
-                      src="{{asset('assets/images/' . $product['image'])}}"
+                      src="{{asset('assets/images/products/' . $product->img)}}"
                       class="img-fluis"
                       height="80"
                       width="80"
@@ -595,16 +352,16 @@
                     />
                   </div>
                   <div class="details">
-                    <p class="fw-bold">{{$product['name']}}</p>
-                    <p class="text-muted">{{$product['category']}}</p>
-                     @if($product['discount']>0)
-                          <p><b>${{$product['price'] - $product['discount']}}</b> <del>${{$product['price']}}</del></p>
+                    <p class="fw-bold">{{$product->title}}</p>
+                    <p class="text-muted">{{$product->name}}</p>
+                     @if($product->discount>0)
+                          <p><b>${{$product->price - $product->discount}}</b> <del>${{$product->price}}</del></p>
                         @else
-                         <p><b>${{$product['price']}}</b></p>
+                         <p><b>${{$product->price}}</b></p>
                      @endif
                   </div>
               </div>
-              @endforeach 
+              @endforeach
 
               <!--End First Column-->
             </div>
@@ -615,28 +372,28 @@
               >
                 Trending
               </h4>
-             @foreach($trending as $product)
-                <div class="product-box">
-                  <div class="img">
-                    <img
-                      src="{{asset('assets/images/' . $product['image'])}}"
-                      class="img-fluis"
-                      height="80"
-                      width="80"
-                      alt=""
-                    />
-                  </div>
-                  <div class="details">
-                    <p class="fw-bold">{{$product['name']}}</p>
-                    <p class="text-muted">{{$product['category']}}</p>
-                     @if($product['discount']>0)
-                          <p><b>${{$product['price'] - $product['discount']}}</b> <del>${{$product['price']}}</del></p>
-                        @else
-                         <p><b>${{$product['price']}}</b></p>
-                     @endif
-                  </div>
-              </div>
-              @endforeach 
+                @foreach($trending as $product)
+                    <div class="product-box">
+                        <div class="img">
+                            <img
+                                src="{{asset('assets/images/products/' . $product->img)}}"
+                                class="img-fluis"
+                                height="80"
+                                width="80"
+                                alt=""
+                            />
+                        </div>
+                        <div class="details">
+                            <p class="fw-bold">{{$product->title}}</p>
+                            <p class="text-muted">{{$product->name}}</p>
+                            @if($product->discount>0)
+                                <p><b>${{$product->price - $product->discount}}</b> <del>${{$product->price}}</del></p>
+                            @else
+                                <p><b>${{$product->price}}</b></p>
+                            @endif
+                        </div>
+                    </div>
+                @endforeach
             </div>
             <div class="col-lg-4 col-md-6 col-12 mt-5">
               <h4
@@ -645,28 +402,28 @@
               >
                 Top Rated
               </h4>
-              @foreach($topRated as $product)
-                <div class="product-box">
-                  <div class="img">
-                    <img
-                      src="{{asset('assets/images/' . $product['image'])}}"
-                      class="img-fluis"
-                      height="80"
-                      width="80"
-                      alt=""
-                    />
-                  </div>
-                  <div class="details">
-                    <p class="fw-bold">{{$product['name']}}</p>
-                    <p class="text-muted">{{$product['category']}}</p>
-                     @if($product['discount']>0)
-                          <p><b>${{$product['price'] - $product['discount']}}</b> <del>${{$product['price']}}</del></p>
-                        @else
-                         <p><b>${{$product['price']}}</b></p>
-                     @endif
-                  </div>
-              </div>
-              @endforeach 
+                @foreach($topRated as $product)
+                    <div class="product-box">
+                        <div class="img">
+                            <img
+                                src="{{asset('assets/images/products/' . $product->img)}}"
+                                class="img-fluis"
+                                height="80"
+                                width="80"
+                                alt=""
+                            />
+                        </div>
+                        <div class="details">
+                            <p class="fw-bold">{{$product->title}}</p>
+                            <p class="text-muted">{{$product->name}}</p>
+                            @if($product->discount>0)
+                                <p><b>${{$product->price - $product->discount}}</b> <del>${{$product->price}}</del></p>
+                            @else
+                                <p><b>${{$product->price}}</b></p>
+                            @endif
+                        </div>
+                    </div>
+                @endforeach
             </div>
           </div>
           <!--END groups-->
@@ -746,31 +503,30 @@
 
             -->
             <div class="row">
-
               @foreach($products as $product)
-                    <div class="col-lg-3 col-md-6 mb-5 col-12" id="{{$product['id']}}">
+                    <div class="col-lg-3 col-md-6 mb-5 col-12" id="{{$product->id}}">
                         <div class="card">
                             <img
-                                src="{{asset('assets/images/' . $product['image'])}}"
+                                src="{{asset('assets/images/products/' . $product->img)}}"
                                 class="card-img-top"
                                 alt="..."
                             />
                             <div class="card-body">
-                                <h5 class="card-title">{{$product['category']}}</h5>
-                                <p class="card-text">{{$product['name']}}</p>
+                                <h5 class="card-title">{{$product->name}}</h5>
+                                <p class="card-text">{{$product->title}}</p>
                                 <p style="font-size: 24px; color: gold">
                                     @for($i=0;$i<5;$i++)
-                                        @if($i < $product['rating'])
+                                        @if($i < $product->rate)
                                             <i class="fa-solid fa-star"></i>
                                         @else
                                             <i class="fa-regular fa-star"></i>
                                         @endif
                                     @endfor
                                 </p>
-                                @if($product['discount']>0)
-                                    <p><b>${{$product['price'] - $product['discount']}}</b> <del>${{$product['price']}}</del></p>
+                                @if($product->discount>0)
+                                    <p><b>${{$product->price - $product->discount}}</b> <del>${{$product->price}}</del></p>
                                 @else
-                                    <p><b>${{$product['price']}}</b></p>
+                                    <p><b>${{$product->price}}</b></p>
                                 @endif
                                 <div class="card-opt">
                                     <p><i class="fa-regular fa-heart"></i></p>
@@ -782,8 +538,6 @@
                         </div>
                     </div>
               @endforeach
-
-
             </div>
           </div>
           <!--End Products Cards-->

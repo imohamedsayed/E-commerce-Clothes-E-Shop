@@ -39,6 +39,11 @@ body {
 
 .activeP {
     color: var(--active-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.activeP:hover{
+    opacity: 0.5;
 }
 .nav-link:hover,
 a:hover {
@@ -271,6 +276,9 @@ aside.nav-link {
 .topHeader input[type="search"] {
     color: var(--text-black-700);
 }
+.fa-magnifying-glass{
+    color: var(--text-black-900);
+}
 .second-header .navs {
     display: flex !important;
     flex-direction: row;
@@ -318,8 +326,9 @@ aside.nav-link {
 
 /* End Second Header*/
 .categories {
-    min-height: calc(120vh - 41px);
+    min-height: calc(130vh - 41px);
     padding: 10px;
+    padding-bottom: 60px;
     background: var(--bg-black-900);
 }
 .categories h1 {
@@ -348,6 +357,7 @@ aside.nav-link {
     width: 100%;
     color: #555;
 }
+
 .categories .bestSeller .best-seller-box {
     height: 50px;
 }

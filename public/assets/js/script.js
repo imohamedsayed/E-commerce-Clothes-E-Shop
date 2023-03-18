@@ -110,12 +110,20 @@ dayNight.addEventListener("click", () => {
   dayNight.querySelector("svg").classList.toggle("fa-sun");
   dayNight.querySelector("svg").classList.toggle("fa-moon");
   document.body.classList.toggle("dark");
+  if(document.body.classList.contains('dark')){
+      localStorage.darkMode = 'on'
+  }else{
+      localStorage.darkMode = 'off'
+  }
 });
 
+
+
 window.addEventListener("load", () => {
-  if (document.body.classList.contains("dark")) {
+  if (localStorage.darkMode === 'on') {
+    document.body.classList.add('dark')
     dayNight.querySelector("svg").classList.add("fa-sun");
   } else {
-    dayNight.querySelector("svg").classList.add("fa-moon");
+      dayNight.querySelector("svg").classList.add("fa-moon");
   }
 });
