@@ -1,0 +1,226 @@
+:root {
+    --blue-color: #0f748fb3;
+    --active-color: #19c8fa;
+    --dark-color: #19283f;
+    --green-color: #33d1cc;
+    --red-color: #ff3150;
+    --yellow-color: #ffc400;
+    --section-color: #eff7fa;
+    --pink-color: #ff8f9c;
+    --bg-black-900: #f2f2fc;
+    --bg-black-100: #fdf9ff;
+    --bg-black-50: #ffffff;
+    --text-black-900: #302e4d;
+    --text-black-700: #504e70;
+    --skin-color: #ec1839;
+    --intro-color: #747474a3;
+    --footer-color: #212121;
+}
+body.dark {
+    --bg-black-900: #191919;
+    --bg-black-100: #212123;
+    --bg-black-50: #28282a;
+    --text-black-900: #ffffff;
+    --text-black-700: #e9e9e9;
+    --intro-color: #d5d5d5a3;
+    --footer-color: #151515;
+    --active-color: #c9a86b;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: var(--bg-black-100);
+    color: var(--text-black-700);
+}
+ul{
+    margin: 0;
+}
+.dash-header{
+    background: var(--bg-black-50);
+    box-shadow: 1px 1px 1px rgba(0,0,0,.2);
+    align-items: center;
+    padding: 10px 40px;
+}
+.dash-header .logo{
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-black-900);
+}
+
+.dash-view{
+    display: flex;
+    height: calc(100vh - 59px);
+}
+.dash-view aside{
+    background-color: var(--bg-black-50);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: calc(2rem + 32px);
+    overflow: hidden;
+    min-height: calc(100vh - 60px);
+    padding: 1rem;
+    transition: 0.2s ease-out;
+    box-shadow: 1px 0 1px 1px rgba(0,0,0,0.2);
+}
+.dash-view aside.expanded{
+    width: 220px;
+}
+aside.expanded aside .menu-toggler-wrap{
+    top: -3rem;
+
+}
+aside.expanded .menu-toggler:hover .fa-solid{
+    transform: translateX(-0.5rem);
+}
+aside.expanded .button .text {
+    opacity: 1;
+}
+@media (max-width: 768px) {
+    aside{
+        position: fixed;
+        z-index: 99;
+    }
+}
+aside .flex {
+    flex: 1 1 0;
+}
+aside .logo{
+    margin-bottom: 1rem;
+
+}
+aside .logo img{
+    width: 2rem;
+
+}
+
+
+.menu-toggler-wrap {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    position: relative;
+    top: 0;
+    transition: 0.2s ease-out;
+}
+.menu-toggler {
+    font-size: 2rem;
+    color: white;
+    background: transparent;
+    border: none;
+    color:var(--text-black-900);
+}
+.menu-toggler .fa-solid {
+    transition: all 0.2s ease-out;
+}
+
+.menu-toggler:hover .menu-toggler .fa-solid {
+    color: var(--active-color);
+    transform: translateX(0.5rem);
+}
+h3,
+.button .text {
+    opacity: 0;
+    transition: 0.3s ease-out;
+}
+h3 {
+    color: var(--text-black-900);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+.menu {
+    margin: 0 -1rem;
+}
+.menu .button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: 0.2s ease-out;}
+
+.menu .button:not(:last-of-type) {
+     margin-bottom: 0.2rem;
+ }
+
+.button svg {
+    font-size: 1rem;
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    padding: 5px;
+    place-content: center;
+    color: #FFF;
+    margin-right: 1rem;
+    transition: 0.2s ease-out;
+    border-radius: 5px;}
+
+svg.fa-book-open {
+     background: var(--active-color);
+ }
+svg.fa-home {
+     background: #96a7e4;}
+
+svg.fa-user {
+     background: #70c4bf;
+ }
+svg.fa-paintbrush {
+     background: #ae68e6;
+ }
+svg.fa-cart-shopping {
+     background: #cfb452;
+ }
+
+.menu .button .text {
+    color: var(--text-black-900);
+    transition: 0.2s ease-out;
+}
+.button{
+    cursor: pointer;
+}
+.menu .button:hover{
+     background-color: var(--active-color);
+ }
+.menu .button.router-link-exact-active {
+     border-right: 5px solid var(--active-color);
+ }
+
+.cursor-pointer {
+    cursor: pointer;
+}
+.cursor-pointer svg{
+    color: var(--text-black-900);
+}
+
+
+
+a{
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+.dash-view .main{
+    flex: 1;
+
+}
+.day-night {
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    background: var(--bg-black-50);
+    color: var(--text-black-900);
+    border-radius: 50px;
+    padding: 10px 15px;
+    cursor: pointer;
+}

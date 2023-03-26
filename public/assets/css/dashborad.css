@@ -1,16 +1,19 @@
-.dashboard form{
+form{
     margin: 80px 0 !important;
     background: var(--bg-black-50);
     padding: 40px;
     border-radius: 20px;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
 }
-.dashboard label{
+ label{
     color: var(--text-black-900);
     display: block;
     font-size: 2rem;
     margin: 10px 0;
+     font-weight: bold;
+     text-transform: capitalize;
 }
-.dashboard input{
+input{
     width: 100%;
     margin-bottom:40px ;
     height: 60px;
@@ -22,11 +25,11 @@
     color: var(--text-black-700);
     transition: all 0.3s ease;
 }
-.dashboard input:focus{
+ input:focus{
     outline: none;
     transform: scale(1.05);
 }
-.dashboard select{
+select{
     width: 100%;
     margin-bottom:40px ;
     height: 60px;
@@ -37,4 +40,9 @@
     font-size: 1.4rem;
     color: var(--text-black-700);
     transition: all 0.3s ease;
+}
+
+.form-title{
+    color: var(--active-color);
+    font-size: 2.9rem;
 }

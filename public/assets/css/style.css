@@ -346,6 +346,14 @@ aside.nav-link {
 .container .nav-link {
     color: var(--text-black-900);
 }
+.navBar .nav-link{
+    padding: 10px;
+    border-radius: 10px;
+}
+.navBar .nav-link:hover{
+    background: var(--active-color) !important;
+    color: #FFFF !important;
+}
 .categories .cats div:not(:last-of-type) {
     margin-bottom: 8%;
 }
@@ -490,6 +498,10 @@ aside.nav-link {
 .groups .product-box .details b {
     color: var(--active-color);
 }
+.products .card img{
+    height: 260px !important;
+}
+
 
 .deal .card {
     background-color: var(--bg-black-50);

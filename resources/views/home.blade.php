@@ -54,7 +54,7 @@
     <aside class="d-lg-none d-lg-none menu has-scrollbar">
       <ul class="list-unstyled">
         <li>
-          <h3><a href="#" class="nav-link">HOME</a></h3>
+            <h3><a href="{{route('home')}}" class="nav-link">HOME</a></h3>
         </li>
         <li>
           <h3><a href="#" class="nav-link">MEN'S</a></h3>
@@ -144,94 +144,37 @@
           </div>
           <div class="bestSeller">
             <h1 class="fw-normal fs-2 mb-5 mt-5 pb-3">BEST SELLERS</h1>
-            <div class="best-seller-box d-flex gap-3">
-              <div class="img">
-                <img
-                  src="{{asset('assets/images/products/1.jpg')}}"
-                  width="80"
-                  height="80"
-                  class="img-fluid"
-                  alt=""
-                />
-              </div>
-              <div class="p-details">
-                <h6>Baby Fabric Shoes</h6>
-                <p style="font-size: 10px; color: gold">
-                  <i class="fa-solid fa-star"></i
-                  ><i class="fa-solid fa-star"></i
-                  ><i class="fa-solid fa-star"></i
-                  ><i class="fa-solid fa-star"></i
-                  ><i class="fa-solid fa-star"></i>
-                </p>
-                <del class="text-muted">&dollar;5.00 </del>&nbsp;<b>$4.000</b>
-              </div>
-            </div>
-            <div class="best-seller-box d-flex gap-3">
-              <div class="img">
-                <img
-                  src="{{asset('assets/images/products/2.jpg')}}"
-                  width="80"
-                  height="80"
-                  class="img-fluid"
-                  alt=""
-                />
-              </div>
-              <div class="p-details">
-                <h6>Men's Hoodies T-shirt</h6>
-                <p style="font-size: 10px; color: gold">
-                  <i class="fa-solid fa-star"></i
-                  ><i class="fa-solid fa-star"></i
-                  ><i class="fa-solid fa-star"></i
-                  ><i class="fa-solid fa-star"></i
-                  ><i class="fa-regular fa-star"></i>
-                </p>
-                <del class="text-muted">&dollar;5.00 </del>&nbsp;<b>$4.000</b>
-              </div>
-            </div>
-            <div class="best-seller-box d-flex gap-3">
-              <div class="img">
-                <img
-                  src="{{asset('assets/images/products/3.jpg')}}"
-                  width="80"
-                  height="80"
-                  class="img-fluid"
-                  alt=""
-                />
-              </div>
-              <div class="p-details">
-                <h6>Girl's T-shirt</h6>
-                <p style="font-size: 10px; color: gold">
-                  <i class="fa-solid fa-star"></i
-                  ><i class="fa-solid fa-star"></i
-                  ><i class="fa-solid fa-star"></i
-                  ><i class="fa-solid fa-star"></i
-                  ><i class="fa-regular fa-star"></i>
-                </p>
-                <del class="text-muted">&dollar;5.00 </del>&nbsp;<b>$3.000</b>
-              </div>
-            </div>
-            <div class="best-seller-box d-flex gap-3">
-              <div class="img">
-                <img
-                  src="{{asset('assets/images/products/4.jpg')}}"
-                  width="80"
-                  height="80"
-                  class="img-fluid"
-                  alt=""
-                />
-              </div>
-              <div class="p-details">
-                <h6>Woolen Hat</h6>
-                <p style="font-size: 10px; color: gold">
-                  <i class="fa-solid fa-star"></i
-                  ><i class="fa-solid fa-star"></i
-                  ><i class="fa-solid fa-star"></i
-                  ><i class="fa-solid fa-star"></i
-                  ><i class="fa-solid fa-star"></i>
-                </p>
-                <del class="text-muted">&dollar;15.00 </del>&nbsp;<b>$12.000</b>
-              </div>
-            </div>
+              @foreach($trending as $product)
+                  <div class="best-seller-box d-flex gap-3">
+                      <div class="img">
+                          <img
+                              src="{{asset('assets/images/products/' . $product->img)}}"
+                              width="80"
+                              height="80"
+                              class="img-fluid"
+                              alt=""
+                          />
+                      </div>
+                      <div class="p-details">
+                          <h6>{{$product->title}}</h6>
+
+                          <p style="font-size: 10px; color: gold">
+                              @for($i=0;$i<5;$i++)
+                                  @if($i < $product->rate)
+                                      <i class="fa-solid fa-star"></i>
+                                  @else
+                                      <i class="fa-regular fa-star"></i>
+                                  @endif
+                              @endfor
+                          </p>
+                          @if($product->discount>0)
+                              <p><b>${{$product->price - $product->discount}}</b> <del>${{$product->price}}</del></p>
+                          @else
+                              <p><b>${{$product->price}}</b></p>
+                          @endif
+                      </div>
+                  </div>
+              @endforeach
           </div>
         </div>
       </div>
@@ -274,13 +217,22 @@
               </div>
             </div>
             <div class="navBar pt-3 pb-3 text-center d-none d-md-block">
-              <ul class="list-unstyled gap-3">
-                <li><a href="" class="text-uppercase nav-link">Home</a></li>
+              <ul class="list-unstyled gap-3 align-items-center" >
+                <li><a  href="{{route('home')}}" class="text-uppercase nav-link">Home</a></li>
                 <li><a href="" class="text-uppercase nav-link">Men's</a></li>
                 <li><a href="" class="text-uppercase nav-link">Women's</a></li>
                 <li><a href="" class="text-uppercase nav-link">Testimonials</a></li>
                 <li><a href="" class="text-uppercase nav-link">offers</a></li>
                 <li><a href="" class="text-uppercase nav-link">Blog</a></li>
+                  @if( auth()->user())
+                      <li><a href="{{route('logoutUser')}}"><button class="btn btn-danger">Log out</button></a></li>
+                      @if(auth()->user()->role=='admin')
+                          <li><a href="{{route('dashboard')}}"> <button class="btn btn-warning">Admin Panel</button></a></li>
+                      @endif
+                  @else
+                      <li><a href="{{route('login')}}"><button class="btn btn-info">Login</button></a></li>
+                      <li><a href="{{route('signup')}}"><button class="btn btn-secondary">Signup</button></a></li>
+                  @endif
               </ul>
             </div>
           </div>
@@ -804,7 +756,7 @@
             <a href="#" class="btn btn-info w-100 rounded-pill"
               >MohamedElsayed@gmail.com</a
             >
-            <ul class="d-flex list-unstyled mt-5 gap-3">
+            <ul class="d-flex list-unstyled mt-5 gap-3 justify-content-center">
               <li>
                 <a
                   href="https://web.facebook.com/Eldbeany"

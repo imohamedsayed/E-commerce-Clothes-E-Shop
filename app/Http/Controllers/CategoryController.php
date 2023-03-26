@@ -17,10 +17,12 @@ class CategoryController extends Controller
     }
     public function showById($id)
     {
-        $products = DB::select('SELECT * FROM `products`join categories on products.category_id = categories.id where products.category_id = ?',[$id]);
+        $products = DB::select('SELECT * FROM `products`join categories on products.category_id = categories.id  where products.category_id = ? order by products.created_at desc limit 9',[$id]);
+        $trending = DB::select('SELECT * FROM `products`join categories on products.category_id = categories.id order by sales desc  limit 5');
+
         $categories = DB::table('categories')->get();
 
-        return view('category.category', compact('products','categories'));
+        return view('category.category', compact('products','categories','trending'));
 
     }
 
@@ -47,7 +49,7 @@ class CategoryController extends Controller
             'icon' =>$request->catIcon,
             'created_at'=>Carbon::now()
         ]);
-
+        return "Category Added Successfully";
     }
     /**
      * Display the specified resource.
