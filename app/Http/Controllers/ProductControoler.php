@@ -11,30 +11,24 @@ class ProductControoler extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
-        //
+        $products = DB::select('SELECT products.*,categories.name  FROM `products`join categories on products.category_id = categories.id  order by products.created_at asc');
+
+        return view('dashboard.products.products',compact('products'));
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function addProduct()
     {
         $categories=DB::table('categories')->get();
 
-       return view('product.add_product',compact('categories'));
+        return view('dashboard.products.add_product',compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    public  function insert(Request $request)
+    public function insert(Request $request)
     {
         DB::table('products')->insert([
             'category_id' => $request->catID,
@@ -50,36 +44,53 @@ class ProductControoler extends Controller
             'created_at'=>Carbon::now()
 
         ]);
-    }
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+
+        return redirect()->route('allProducts');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function showEdit($id)
     {
-        //
+        $categories=DB::table('categories')->get();
+        $product = DB::select ("SELECT * FROM products WHERE id = ?",[$id])[0];
+
+
+        return view('dashboard.products.edit_product',compact('categories','product'));
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request,$id)
     {
-        //
+        DB::table('products')->where('id',$id)->update([
+            'title'=>$request->title,
+            'category_id'=>$request->catID,
+            'price'=>$request->price,
+            'discount'=>$request->discount,
+            'img'=>$request->img,
+            'sales'=>$request->sales,
+            'origin'=>$request->origin,
+            'gender'=>$request->gender,
+            'age_group'=>$request->ageGroup,
+            'rate'=>$request->rate,
+            'updated_at'=>Carbon::now()
+        ]);
+
+        return redirect()->route('allProducts');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+    public function delete($id){
+        DB::table('products')->where('id',$id)->delete();
+
+        return redirect()->route('allProducts');
     }
+
+    public function deleteAll(){
+
+        // Delete
+
+        DB::table('products')->truncate();
+
+        return redirect()->route('allProducts');
+    }
+
+
 }

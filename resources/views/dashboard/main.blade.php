@@ -28,7 +28,7 @@
         </div>
         <div class="navs">
                 <ul class="d-flex align-items-center">
-                    <a href="{{route('logoutUser')}}"><button class="btn btn-danger">Logout</button></a>
+                    <a href="{{route('home')}}"><button class="btn btn-secondary">Back to Store</button></a>
                 </ul>
         </div>
     </div>
@@ -43,31 +43,31 @@
                 </button>
             </div>
             <div class="menu mt-3">
-                <h3 class="mt-3 mb-4">Collections</h3>
-                <a class="button">
+                <a class="button" href="{{route('dashboard')}}">
                     <div class="text-center">
-                        <i class="fa-solid fa-book-open"></i>
+                        <i class="fa-solid fa-home back"></i>
                     </div>
-                    <span class="text">School</span>
+                    <span class="text">Home</span>
                 </a>
-                <a class="button">
+                <a class="button" href="{{route('allProducts')}}">
+                    <div class="text-center">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <span class="text">Products</span>
+                </a>
+                <a class="button"  href="{{route('allCategories')}}">
+                    <div class="text-center" >
+                        <i class="fa-solid fa-cubes-stacked"></i>
+                    </div>
+                    <span class="text">Categories</span>
+                </a>
+                <a class="button"  href="{{route('allSuppliers')}}">
                     <div class="text-center">
                         <i class="fa-solid fa-user"></i>
                     </div>
-                    <span class="text">Personal</span>
+                    <span class="text">Suppliers</span>
                 </a>
-                <a class="button">
-                    <div class="text-center">
-                        <i class="fa-solid fa-paintbrush"></i>
-                    </div>
-                    <span class="text">Design</span>
-                </a>
-                <a class="button">
-                    <div class="text-center">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </div>
-                    <span class="text">Groceries</span>
-                </a>
+
             </div>
             <div class="flex"></div>
             <div class="menu">
@@ -85,7 +85,56 @@
 
             </div>
         </aside>
-        <div class="main"></div>
+        <div class="main">
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="stat-box">
+                            <div class="icon">
+                                <i class="fa-solid fa-shirt"></i>
+                                <p>Products</p>
+                            </div>
+                            <p class="stats">
+                                {{$productNo}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="stat-box">
+                            <div class="icon">
+                                <i class="fa-solid fa-cubes-stacked"></i>
+                                <p>Categories</p>
+                            </div>
+                            <p class="stats">
+                                {{$categoryNo}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="stat-box">
+                            <div class="icon">
+                                <i class="fa-solid fa-user"></i>
+                                <p>Suppliers</p>
+                            </div>
+                            <p class="stats">
+                                {{$supplierNo}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="stat-box">
+                            <div class="icon">
+                                <i class="fa-solid fa-users"></i>
+                                <p>Users</p>
+                            </div>
+                            <p class="stats">
+                                {{$userNo}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="day-night s-icon">

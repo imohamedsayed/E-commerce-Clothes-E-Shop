@@ -25,7 +25,7 @@ window.addEventListener("load", () => {
 
 // aside
 let aside = document.querySelector('aside');
-
+let menuToggles = aside.querySelector('.menu-toggler')
 let showMenu = true;
 
 if(localStorage.getItem("isExpanded") != null)
@@ -36,7 +36,7 @@ if(localStorage.getItem("isExpanded") != null)
     checkAside(aside);
 }
 
-aside.addEventListener('click',()=>{
+menuToggles.addEventListener('click',()=>{
     showMenu = !showMenu;
     aside.classList.toggle('expanded');
     localStorage.setItem("isExpanded", JSON.stringify(showMenu));
@@ -54,3 +54,6 @@ function checkAside(aside){
         aside.classList.remove('expanded');
     }
 }
+
+
+

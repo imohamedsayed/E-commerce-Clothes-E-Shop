@@ -27,14 +27,47 @@ body.dark {
     --active-color: #c9a86b;
 }
 
+
+body::-webkit-scrollbar { width: 15px; }
+
+body::-webkit-scrollbar-track {
+    background: #FFF;
+    border-left: 1px solid red;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--active-color);
+    border: 3px solid #FFF;
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
+
+
+.container { padding: 0 15px; }
+
+.has-scrollbar { padding-bottom: 5px; }
+
+.has-scrollbar::-webkit-scrollbar {
+    width: 6px; /* for vertical scroll */
+    height: 8px; /* for horizontal scroll */
+}
+
+.has-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--active-color);
+    border-radius: 20px;
+}
+
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 body {
-    background-color: var(--bg-black-100);
+    background-color: var(--bg-black-900);
     color: var(--text-black-700);
+    overflow: hidden;
 }
 ul{
     margin: 0;
@@ -44,6 +77,7 @@ ul{
     box-shadow: 1px 1px 1px rgba(0,0,0,.2);
     align-items: center;
     padding: 10px 40px;
+    z-index: 1000;
 }
 .dash-header .logo{
     font-size: 2rem;
@@ -65,7 +99,7 @@ ul{
     min-height: calc(100vh - 60px);
     padding: 1rem;
     transition: 0.2s ease-out;
-    box-shadow: 1px 0 1px 1px rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
 }
 .dash-view aside.expanded{
     width: 220px;
@@ -114,6 +148,10 @@ aside .logo img{
     background: transparent;
     border: none;
     color:var(--text-black-900);
+    background: var(--bg-black-100);
+    padding: 2px 3px;
+    border-radius: 50px;
+
 }
 .menu-toggler .fa-solid {
     transition: all 0.2s ease-out;
@@ -161,16 +199,20 @@ h3 {
     transition: 0.2s ease-out;
     border-radius: 5px;}
 
-svg.fa-book-open {
+svg.fa-shirt {
      background: var(--active-color);
  }
-svg.fa-home {
-     background: #96a7e4;}
+svg.back {
+     background: red;}
+
+svg.fa-users {
+    background: var(--green-color);
+}
 
 svg.fa-user {
      background: #70c4bf;
  }
-svg.fa-paintbrush {
+svg.fa-cubes-stacked {
      background: #ae68e6;
  }
 svg.fa-cart-shopping {
@@ -204,23 +246,114 @@ a{
     text-decoration: none;
 }
 
-
-
-
-
-
-
 .dash-view .main{
     flex: 1;
-
+    overflow-y: auto;
 }
+
 .day-night {
     position: fixed;
-    top: 50px;
+    top: 80px;
     right: 10px;
     background: var(--bg-black-50);
     color: var(--text-black-900);
     border-radius: 50px;
     padding: 10px 15px;
     cursor: pointer;
+}
+@media (max-width: 768px) {
+    .main{
+        padding-left: 4rem;
+    }
+}
+
+/*
+    -------------
+    ADD PRODUCT PAGE
+    -------------
+*/
+.main h2{
+    margin-bottom: 40px;
+}
+.main form , .products-panel{
+    background: var(--bg-black-100);
+    padding: 40px;
+    border-radius: 20px;
+}
+.main label{
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.main input,.main select{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--active-color);
+    background: transparent;
+    color: var(--text-black-900);
+    border-radius: 10px;
+}
+.main input:focus{
+    outline: none;
+    transform: scale(1.05);
+}
+
+.main form button{
+    margin-top: 20px;
+}
+
+
+
+table{
+    width: 100%;
+    text-align: center;
+}
+
+table thead{
+    background: var(--active-color);
+    color: var(--text-black-900);
+    height: 40px;
+}
+table td{
+    padding: 5px;
+}
+
+table img{
+    width: 80px;
+    height: 60px;
+}
+
+table tbody tr:nth-child(even){
+    background: rgba(0, 0, 0, 0.06);
+}
+
+/*
+
+    -----> Dashboard Main Home
+
+*/
+
+.stat-box{
+    background: var(--bg-black-50);
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+.stat-box svg{
+    font-size: 3rem;
+    padding: 10px 5px;
+    width: 70px;
+    border-radius: 10px;
+}
+.stat-box .icon p{
+    font-size: 1.3rem;
+    margin: 5px 0;
+    color: var(--text-black-900);
+}
+.stat-box .stats{
+    font-size: 1.2rem;
+    font-weight: bold;
 }

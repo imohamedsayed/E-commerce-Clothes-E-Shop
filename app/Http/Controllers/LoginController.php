@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public  function  index(){
         $categories = DB::table('categories')->get();
-        $trending = DB::select('SELECT * FROM `products`join categories on products.category_id = categories.id order by sales desc  limit 5');
+        $trending = DB::select('SELECT products.*,categories.name  FROM `products`join categories on products.category_id = categories.id order by sales desc  limit 5');
 
         return view('auth.login',compact('categories','trending'));
     }
