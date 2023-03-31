@@ -3,6 +3,7 @@
 let productRows = document.querySelectorAll("table tbody tr"),
     searchTitle = document.querySelector('input.searchTitle'),
     searchCategory = document.querySelector('input.searchCategory'),
+    searchSupplier = document.querySelector('input.searchSupplier'),
     seachInputs = document.querySelectorAll('input'),
     productArea = document.querySelector('table tbody');
 seachInputs.forEach(input=>{
@@ -10,6 +11,7 @@ seachInputs.forEach(input=>{
 
         let key1 = searchTitle.value.toLowerCase();
         let key2 = searchCategory.value.toLowerCase();
+        let key3 = searchSupplier.value.toLowerCase();
 
 
 
@@ -19,8 +21,9 @@ seachInputs.forEach(input=>{
         {
             let pName = tr.querySelector('.title').innerHTML.toLowerCase();
             let pCat = tr.querySelector('.category').innerHTML.toLowerCase();
+            let pSup = tr.querySelector('.supplier').innerHTML.toLowerCase();
 
-            if( pName.includes(key1) && pCat.includes(key2))
+            if( pName.includes(key1) && pCat.includes(key2) && pSup.includes(key3))
             {
                 searchResults.push(tr)
             }

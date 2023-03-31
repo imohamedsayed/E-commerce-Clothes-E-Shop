@@ -14,7 +14,7 @@ class ProductControoler extends Controller
 
     public function index()
     {
-        $products = DB::select('SELECT products.*,categories.name  FROM `products`join categories on products.category_id = categories.id  order by products.created_at asc');
+        $products = DB::select('SELECT products.*,categories.name, suppliers.name as sname  FROM `products`join categories on products.category_id = categories.id join suppliers on products.supplier_id = suppliers.id  order by products.created_at asc');
 
         return view('dashboard.products.products',compact('products'));
 
@@ -23,8 +23,9 @@ class ProductControoler extends Controller
     public function addProduct()
     {
         $categories=DB::table('categories')->get();
+        $suppliers=DB::table('suppliers')->get();
 
-        return view('dashboard.products.add_product',compact('categories'));
+        return view('dashboard.products.add_product',compact('categories','suppliers'));
     }
 
 
@@ -32,6 +33,7 @@ class ProductControoler extends Controller
     {
         DB::table('products')->insert([
             'category_id' => $request->catID,
+            'supplier_id' => $request->supID,
             'title' => $request->title,
             'price' =>$request->price,
             'discount'=>$request->discount,
@@ -51,10 +53,12 @@ class ProductControoler extends Controller
     public function showEdit($id)
     {
         $categories=DB::table('categories')->get();
+        $suppliers=DB::table('suppliers')->get();
+
         $product = DB::select ("SELECT * FROM products WHERE id = ?",[$id])[0];
 
 
-        return view('dashboard.products.edit_product',compact('categories','product'));
+        return view('dashboard.products.edit_product',compact('categories','product','suppliers'));
 
     }
 
@@ -63,6 +67,7 @@ class ProductControoler extends Controller
         DB::table('products')->where('id',$id)->update([
             'title'=>$request->title,
             'category_id'=>$request->catID,
+            'supplier_id'=>$request->supID,
             'price'=>$request->price,
             'discount'=>$request->discount,
             'img'=>$request->img,

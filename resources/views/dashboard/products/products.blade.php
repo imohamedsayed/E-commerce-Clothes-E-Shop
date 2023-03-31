@@ -28,7 +28,7 @@
     </div>
     <div class="navs">
         <ul class="d-flex align-items-center">
-            <a href="{{route('logoutUser')}}"><button class="btn btn-danger">Logout</button></a>
+            <a href="{{route('home')}}"><button class="btn btn-secondary">Back to Store</button></a>
         </ul>
     </div>
 </div>
@@ -113,6 +113,7 @@
                             <td class="d-none d-md-table-cell">Img</td>
                             <td class="">Title</td>
                             <td class="d-none d-lg-table-cell">Category</td>
+                            <td class="d-none d-lg-table-cell">Supplier</td>
                             <td class="d-none d-md-table-cell">Price</td>
                             <td class="d-none d-lg-table-cell">Discount</td>
                             <td class="d-none d-lg-table-cell">Origin</td>
@@ -133,6 +134,7 @@
                                     <td class="d-none d-md-table-cell"><img src="{{asset('assets/images/products/' . $p->img)}}" alt=""></td>
                                     <td class="title">{{$p->title}}</td>
                                     <td class="d-none d-lg-table-cell category">{{$p->name}}</td>
+                                    <td class="d-none d-lg-table-cell supplier">{{$p->sname}}</td>
                                     <td class="d-none d-md-table-cell">{{$p->price}}</td>
                                     <td class="d-none d-lg-table-cell">{{$p->discount}}</td>
                                     <td class="d-none d-lg-table-cell">{{$p->origin}}</td>

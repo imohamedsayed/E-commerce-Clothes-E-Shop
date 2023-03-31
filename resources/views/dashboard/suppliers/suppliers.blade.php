@@ -28,7 +28,7 @@
     </div>
     <div class="navs">
         <ul class="d-flex align-items-center">
-            <a href="{{route('logoutUser')}}"><button class="btn btn-danger">Logout</button></a>
+            <a href="{{route('home')}}"><button class="btn btn-secondary">Back to Store</button></a>
         </ul>
     </div>
 </div>
