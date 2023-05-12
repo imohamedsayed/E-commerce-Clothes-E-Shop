@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Supplier;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +13,9 @@ class SupplierController extends Controller
 
     public function index()
     {
-        $suppliers = DB::table('suppliers')->get();
+        $suppliers = Supplier::all();
+
+
 
         return view('dashboard.suppliers.suppliers',compact('suppliers'));
     }
@@ -29,18 +32,16 @@ class SupplierController extends Controller
 
     public function create(Request $request)
     {
-        DB::table('suppliers')->insert([
+        Supplier::create([
             'name'=>$request->name,
-            'created_at'=>Carbon::now()
         ]);
-
         return redirect()->route('allSuppliers');
     }
 
     // Go to edit page
     public function edit_supplier($id)
     {
-        $supplier = DB::table('suppliers')->where('id',$id)->first();
+        $supplier = Supplier::findOrFail($id);
 
         return view('dashboard.suppliers.edit_supplier',compact('supplier'));
     }
@@ -48,9 +49,10 @@ class SupplierController extends Controller
     // edit action
 
     public function update(Request $request,$id){
-        DB::table('suppliers')->where('id',$id)->update([
-            'name'=>$request->name,
-            'updated_at'=>Carbon::now()
+        $supplier = Supplier::findOrFail($id);
+
+        $supplier->update([
+            'name' => $request->name,
         ]);
 
         return redirect()->route('allSuppliers');
@@ -60,7 +62,7 @@ class SupplierController extends Controller
 
     public function delete($id)
     {
-        DB::table('suppliers')->where('id',$id)->delete();
+        Supplier::destroy($id);
 
         return redirect()->route('allSuppliers');
     }

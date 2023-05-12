@@ -49,7 +49,7 @@
                 </div>
                 <span class="text">Home</span>
             </a>
-            <a class="button" href="{{route('allProducts')}}">
+            <a class="button active" href="{{route('allProducts')}}">
                 <div class="text-center">
                     <i class="fa-solid fa-shirt"></i>
                 </div>

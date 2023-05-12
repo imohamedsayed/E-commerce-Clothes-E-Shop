@@ -188,19 +188,44 @@
                 <h1 id="mainLogo">MSO</h1>
               </div>
               <div
-                class="Search col-lg-7 col-md-10 col-12 d-flex align-items-center"
-              >
-                <form action="#" class="w-100">
-                  <input
-                    type="search"
-                    class="form-control"
-                    placeholder="Enter Product Name"
-                  />
-                </form>
-                <a class="btn"
-                  ><i class="fa-solid p-2 fa-magnifying-glass"></i
-                ></a>
-              </div>
+                    class="Search col-lg-7 col-md-10 col-12 d-flex align-items-center"
+                >
+                    <form action="{{route('search')}}" method="post" class="w-100 d-flex mt-4 mt-md-2" >
+
+                        @csrf
+
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                <input
+                                    type="search"
+                                    class="form-control"
+                                    placeholder="Enter Product Name"
+                                    name="pName"
+                                />
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                <input
+                                    type="search"
+                                    class="form-control"
+                                    placeholder="Enter Category "
+                                    name="pCat"
+                                />
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                <input
+                                    type="search"
+                                    class="form-control"
+                                    placeholder="Enter Supplier Name"
+                                    name="pSup"
+                                />
+                            </div>
+                        </div>
+
+                        <button class="btn ms-2" type="submit"
+                        ><i class="fa-solid p-2 fa-magnifying-glass"></i
+                            ></button>
+                    </form>
+                </div>
               <div class="navs col-lg-3 d-lg-block d-none">
                 <a class="btn rounded-circle" href="#"
                   ><i class="fa-regular fa-user"></i

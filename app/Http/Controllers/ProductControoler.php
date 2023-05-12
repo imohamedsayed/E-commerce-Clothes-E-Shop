@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -31,7 +32,7 @@ class ProductControoler extends Controller
 
     public function insert(Request $request)
     {
-        DB::table('products')->insert([
+        Product::create([
             'category_id' => $request->catID,
             'supplier_id' => $request->supID,
             'title' => $request->title,
@@ -42,9 +43,7 @@ class ProductControoler extends Controller
             'origin'=>$request->origin,
             'gender'=>$request->gender,
             'age_group'=>$request->ageGroup,
-            'rate'=>$request->rate,
-            'created_at'=>Carbon::now()
-
+            'rate'=>$request->rate
         ]);
 
         return redirect()->route('allProducts');
@@ -55,7 +54,8 @@ class ProductControoler extends Controller
         $categories=DB::table('categories')->get();
         $suppliers=DB::table('suppliers')->get();
 
-        $product = DB::select ("SELECT * FROM products WHERE id = ?",[$id])[0];
+        $product = Product::findOrFail($id);
+        // or  $product = Product::where('id', $id)->first();
 
 
         return view('dashboard.products.edit_product',compact('categories','product','suppliers'));
@@ -64,7 +64,8 @@ class ProductControoler extends Controller
 
     public function update(Request $request,$id)
     {
-        DB::table('products')->where('id',$id)->update([
+        $product = Product::findOrFail($id);
+        $product->update([
             'title'=>$request->title,
             'category_id'=>$request->catID,
             'supplier_id'=>$request->supID,
@@ -76,15 +77,13 @@ class ProductControoler extends Controller
             'gender'=>$request->gender,
             'age_group'=>$request->ageGroup,
             'rate'=>$request->rate,
-            'updated_at'=>Carbon::now()
         ]);
 
         return redirect()->route('allProducts');
     }
 
     public function delete($id){
-        DB::table('products')->where('id',$id)->delete();
-
+        Product::destroy($id);
         return redirect()->route('allProducts');
     }
 

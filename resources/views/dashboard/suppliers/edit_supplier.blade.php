@@ -61,7 +61,7 @@
                 </div>
                 <span class="text">Categories</span>
             </a>
-            <a class="button"  href="{{route('allSuppliers')}}">
+            <a class="button active"  href="{{route('allSuppliers')}}">
                 <div class="text-center">
                     <i class="fa-solid fa-user"></i>
                 </div>

@@ -61,7 +61,7 @@
                 </div>
                 <span class="text">Categories</span>
             </a>
-            <a class="button"  href="{{route('allSuppliers')}}">
+            <a class="button active"  href="{{route('allSuppliers')}}">
                 <div class="text-center">
                     <i class="fa-solid fa-user"></i>
                 </div>
@@ -94,15 +94,10 @@
                     <div class="col-12 col-md-6 mb-4">
                         <div class="input-field">
                             <label>Supplier's Name</label>
-                            <input type="text" placeholder="Name" name="name" required/>
+                            <input type="text" placeholder="Name" name="name" />
                         </div>
                     </div>
-                    <div class="col-12 col-md-6 mb-4">
-                        <div class="input-field">
-                            <label>Supplier's phone </label>
-                            <input type="text" name="price" placeholder="phone number"/>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary"> Add Supplier</button>

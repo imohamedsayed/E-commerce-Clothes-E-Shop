@@ -55,7 +55,7 @@
                 </div>
                 <span class="text">Products</span>
             </a>
-            <a class="button"  href="{{route('allCategories')}}">
+            <a class="button active"  href="{{route('allCategories')}}">
                 <div class="text-center" >
                     <i class="fa-solid fa-cubes-stacked"></i>
                 </div>

@@ -91,7 +91,11 @@ Route::controller(LoginController::class)->group(function(){
     Route::post('/loginMe','login')->name('loginUser');
 });
 
+// Search
 
+Route::controller(\App\Http\Controllers\SearchController::class)->group(function (){
+    Route::post('/search','index')->name('search');
+});
 
 
 

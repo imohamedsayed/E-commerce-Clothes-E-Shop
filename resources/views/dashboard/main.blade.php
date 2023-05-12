@@ -38,12 +38,12 @@
                 <img src="{{asset('../assets/images/logo/logo.svg')}}" alt="logo" />
             </div>
             <div class="menu-toggler-wrap">
-                <button class="menu-toggler" >
+                <button class="menu-toggler"  >
                     <i class="fa-solid fa-angles-right"></i>
                 </button>
             </div>
             <div class="menu mt-3">
-                <a class="button" href="{{route('dashboard')}}">
+                <a class="button active" href="{{route('dashboard')}}">
                     <div class="text-center">
                         <i class="fa-solid fa-home back"></i>
                     </div>

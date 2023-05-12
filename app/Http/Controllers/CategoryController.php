@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +15,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = DB::table('categories')->get();
+        $categories = Category::all();
         return view('dashboard.categories.categories',compact('categories'));
     }
 
@@ -43,11 +44,11 @@ class CategoryController extends Controller
 
     public function insert(Request $request)
     {
-        DB::table('categories')->insert([
+        Category::create([
             'name' => $request->catName,
             'icon' =>$request->catIcon,
-            'created_at'=>Carbon::now()
         ]);
+
         return redirect()->route('allCategories');
     }
 
@@ -56,7 +57,7 @@ class CategoryController extends Controller
 
     public function updateCategory($id)
     {
-        $category = DB::table('categories')->where('id',$id)->first();
+        $category = Category::findOrFail($id);
         return view('dashboard.categories.edit_category',compact('category'));
 
     }
@@ -66,11 +67,10 @@ class CategoryController extends Controller
 
     public function update(Request $request,$id)
     {
-        DB::table('categories')->where('id',$id)->update([
+        $category = Category::findOrFail($id);
+        $category->update([
             'name' =>$request->catName,
             'icon' =>$request->catIcon,
-            'updated_at'=>Carbon::now()
-
         ]);
         return redirect()->route('allCategories');
 
@@ -81,7 +81,8 @@ class CategoryController extends Controller
 
     public function delete($id)
     {
-        DB::table('categories')->where('id',$id)->delete();
+        Category::destroy($id);
+
         return redirect()->route('allCategories');
 
     }
