@@ -94,15 +94,13 @@
                     <div class="col-12 col-md-6 mb-4">
                         <div class="input-field">
                             <label>Supplier's Name</label>
-                            <input type="text" placeholder="Name" name="name" required value="{{$supplier->name}}"/>
+                            <input type="text" placeholder="Name" name="name" class="@error('name') is-invalid @enderror" value="{{$supplier->name}}"/>
+                            @error('name')
+                            <p class="alert alert-danger">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
-                    <div class="col-12 col-md-6 mb-4">
-                        <div class="input-field">
-                            <label>Supplier's phone </label>
-                            <input type="text" name="price" placeholder="phone number"/>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">Edit Supplier</button>

@@ -94,7 +94,11 @@
                     <div class="col-12 col-md-6 mb-4">
                         <div class="input-field">
                             <label>Supplier's Name</label>
-                            <input type="text" placeholder="Name" name="name" />
+                            <input type="text" placeholder="Name" name="name" value="{{old('name')}}" class="@error('name') is-invalid @enderror"/>
+                            @error('name')
+                                <p class="alert alert-danger">{{$message}}</p>
+                            @enderror
+
                         </div>
                     </div>
 

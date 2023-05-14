@@ -1,0 +1,150 @@
+.cart-item{
+    color: var(--text-black-900);
+    background: var(--bg-black-900);
+    padding: 15px;
+    border-radius: 10px;
+}
+.cart-item img{
+    width: 200px;
+}
+@media (max-width: 694px) {
+    .cart-item img{
+        width: 100px;
+    }
+    .cart-item .product-details{
+        margin-left: 0;
+
+    }
+
+    span.del-item{
+        height: 40px !important;
+        right: auto;
+        left: -121px;
+
+    }
+}
+
+.cart-item .product-details{
+    flex: 1;
+    padding: 5px 20px;
+    position: relative;
+    margin-left: 20px;
+}
+span.del-item{
+    position: absolute;
+    background: linear-gradient(to right bottom,#ec163f,#661515);
+    color: white;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 30px;
+    font-size: 1.6rem;
+    display: grid;
+    place-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    opacity: 0.8;
+
+}
+span.del-item:hover{
+    transform: scale(1.02);
+    opacity: 1;
+}
+.product-details input{
+    width: 40px;
+    background: transparent;
+    border: none;
+    text-align: center;
+    font-size: 1.32rem;
+    height: 40px;
+    margin: 0 5px;
+    color: var(--text-black-900);
+}
+.product-details button{
+    width: 30px;
+    height: 40px;
+    border: none;
+    font-size: 1.6rem;
+    background: var(--bg-black-50);
+    color: var(--text-black-900);
+    line-height: 40px;
+
+
+}
+/* Total */
+
+.total{
+    margin: 40px 0;
+    text-align: right;
+}
+.total p{
+    font-size: 1.3rem;
+    color: var(--text-black-900);
+}
+.total p span{
+    color: var(--text-black-700);
+
+}
+p.total_money{
+    font-size: 1.6rem;
+    padding: 20px 0;
+    position: relative;
+}
+p.total_money::before{
+    content: '';
+    width: 200px;
+    height: 2px;
+    background: var(--text-black-700);
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    right:1px;
+}
+p.total_money span{
+    color: var(--active-color);
+}
+p.total_money::after{
+    content: '';
+    width: 200px;
+    height: 2px;
+    background: var(--text-black-700);
+    opacity: 0.4;
+    position: absolute;
+    bottom: 0;
+    right:1px;
+}
+/* Confirm order*/
+
+.confirm_form form{
+    background: var(--bg-black-900);
+    padding: 40px;
+}
+@media (max-width: 500px) {
+    .form-field{
+        flex-direction: column;
+        margin-bottom:20px;
+    }
+    .form-field label{
+        margin-bottom: 5px;
+    }
+}
+.confirm_form .form-field{
+    margin-bottom: 10px;
+}
+.confirm_form label{
+    font-size: 1.3rem;
+    width: 300px;
+    color: var(--text-black-900);
+}
+.confirm_form input{
+    flex: 1;
+    height: 40px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.confirm_form input:focus{
+    outline: none;
+    transform: scale(1.05);
+}

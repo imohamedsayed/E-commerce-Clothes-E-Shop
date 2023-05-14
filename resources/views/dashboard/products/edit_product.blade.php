@@ -95,13 +95,16 @@
                     <div class="col-12 col-md-6 mb-4">
                         <div class="input-field">
                             <label>Product Name</label>
-                            <input type="text" placeholder="Product Name" name="title" value="{{$product->title}}"/>
+                            <input type="text" placeholder="Product Name" name="title" value="{{$product->title}}" class="@error('title') is-invalid @enderror"/>
+                             @error('title')
+                                <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-12 col-md-6 mb-4">
                         <div class="input-field">
                             <label>Category</label>
-                            <select name="catID">
+                            <select name="catID" class="@error('catID') is-invalid @enderror">
                                 @foreach($categories as $cat)
                                     @if($product->category_id == $cat->id)
                                         <option value="{{$cat->id}}" selected>{{$cat->name}}</option>
@@ -110,12 +113,15 @@
                                     @endif
                                 @endforeach
                             </select>
+                             @error('catID')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-12 col-md-6 mb-4">
                         <div class="input-field">
-                            <label>Category</label>
-                            <select name="supID">
+                            <label>Supplier</label>
+                            <select name="supID" class="@error('supID') is-invalid @enderror">
                                 @foreach($suppliers as $s)
                                     @if($product->supplier_id == $s->id)
                                         <option value="{{$s->id}}" selected>{{$s->name}}</option>
@@ -124,60 +130,87 @@
                                     @endif
                                 @endforeach
                             </select>
+                            @error('supID')
+                                <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-12 col-md-6 mb-4">
                         <div class="input-field">
                             <label>Product's Price </label>
-                            <input type="text" name="price" value="{{$product->price}}" placeholder="type the Price here ..."/>
+                            <input type="text" name="price" value="{{$product->price}}" placeholder="type the Price here ..." class="@error('price') is-invalid @enderror"/>
+                            @error('price')
+                                <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-12 col-md-6 mb-4">
                         <div class="input-field">
                             <label>Product's offer </label>
-                            <input type="text" name="discount" value="{{$product->discount}}" placeholder="type the discount here ..."/>
+                            <input type="text" name="discount" value="{{$product->discount}}" placeholder="type the discount here ..." class="@error('discount') is-invalid @enderror"/>
+                            @error('discount')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-12 col-md-6 mb-4">
                         <div class="input-field">
                             <label>Product's Picture </label>
-                            <input type="text" name="img" value="{{$product->img}}"  placeholder="type the img name with extension here ..."/>
+                            <input type="text" name="img" value="{{$product->img}}"  placeholder="type the img name with extension here ..." class="@error('img') is-invalid @enderror"/>
+                            @error('img')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-12 col-md-6 mb-4">
                         <div class="input-field">
                             <label>Sales (0 if new)</label>
-                            <input type="number" name="sales" value="{{$product->sales}}"  placeholder="type the sales here ..."/>
+                            <input type="number" name="sales" value="{{$product->sales}}"  placeholder="type the sales here ..." class="@error('sales') is-invalid @enderror"/>
+                            @error('sales')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-12 col-md-6 mb-4">
                         <div class="input-field">
                             <label>Rate (0 if new)</label>
-                            <input type="number" name="rate" value="{{$product->rate}}"  placeholder="type the rate here ..."/>
+                            <input type="number" name="rate" value="{{$product->rate}}"  placeholder="type the rate here ..." class="@error('rate') is-invalid @enderror"/>
+                            @error('rate')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-12 col-md-6 mb-4">
                         <div class="input-field">
                             <label>Origin</label>
-                            <input type="text" name="origin" value="{{$product->origin}}"  placeholder="type the manufacturing country here ..."/>
+                            <input type="text" name="origin" value="{{$product->origin}}"  placeholder="type the manufacturing country here ..." class="@error('origin') is-invalid @enderror"/>
+                            @error('origin')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-12 col-md-6 mb-4">
-                        <div class="input-field">
+                        <div class="input-field" >
                             <label>Gender</label>
-                            <select name="gender">
+                            <select name="gender" class="@error('gender') is-invalid @enderror">
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
+                            @error('gender')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-12 col-md-6 mb-4">
                         <div class="input-field">
                             <label>Age Group</label>
-                            <select name="ageGroup">
+                            <select name="ageGroup" class="@error('ageGroup') is-invalid @enderror">
                                 <option value="kids">Kids</option>
                                 <option value="Adults">Adults</option>
                             </select>
+                            @error('ageGroup')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>

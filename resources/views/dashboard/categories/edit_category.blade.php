@@ -95,13 +95,19 @@
                     <div class="col-12 col-md-6 mb-4">
                         <div class="input-field">
                             <label>Category Name</label>
-                            <input type="text" placeholder="Product Name" name="catName" value="{{$category->name}}"/>
+                            <input type="text" placeholder="Product Name" name="name" value="{{$category->name}}"  class="@error('name') is-invalid @enderror"/>
+                            @error('name')
+                                <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-12 col-md-6 mb-4">
                         <div class="input-field">
                             <label>Category's Icon</label>
-                            <input type="text" name="catIcon" placeholder="img name with extension" value="{{$category->icon}}"/>
+                            <input type="text" name="icon" placeholder="img name with extension" value="{{$category->icon}}" class="@error('icon') is-invalid @enderror"/>
+                            @error('icon')
+                                <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>

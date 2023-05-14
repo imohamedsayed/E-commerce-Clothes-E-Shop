@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\storeAndEditCategory;
 use App\Models\Category;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -27,8 +28,9 @@ class CategoryController extends Controller
         $trending = DB::select('SELECT products.*,categories.name  FROM `products`join categories on products.category_id = categories.id order by sales desc  limit 5');
 
         $categories = DB::table('categories')->get();
+        $p = Category::find($id)->product;
 
-        return view('category.category', compact('products','categories','trending'));
+        return view('category.category', compact('products','categories','trending','p'));
 
     }
 
@@ -42,11 +44,11 @@ class CategoryController extends Controller
         return view('dashboard.categories.add_category');
     }
 
-    public function insert(Request $request)
+    public function insert(storeAndEditCategory $request)
     {
         Category::create([
-            'name' => $request->catName,
-            'icon' =>$request->catIcon,
+            'name' => $request->name,
+            'icon' =>$request->icon,
         ]);
 
         return redirect()->route('allCategories');
@@ -65,12 +67,12 @@ class CategoryController extends Controller
 
     // update action
 
-    public function update(Request $request,$id)
+    public function update(storeAndEditCategory $request,$id)
     {
         $category = Category::findOrFail($id);
         $category->update([
-            'name' =>$request->catName,
-            'icon' =>$request->catIcon,
+            'name' =>$request->name,
+            'icon' =>$request->icon,
         ]);
         return redirect()->route('allCategories');
 

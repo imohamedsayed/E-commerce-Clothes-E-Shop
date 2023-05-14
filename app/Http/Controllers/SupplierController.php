@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\storeAndEditSupplier;
 use App\Models\Supplier;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -30,8 +31,12 @@ class SupplierController extends Controller
 
     // insert supplier into database
 
-    public function create(Request $request)
+    public function create(storeAndEditSupplier $request)
     {
+        $request->validate([
+           'name'=>'required|unique:suppliers|min:10',
+        ]);
+
         Supplier::create([
             'name'=>$request->name,
         ]);
@@ -48,8 +53,12 @@ class SupplierController extends Controller
 
     // edit action
 
-    public function update(Request $request,$id){
+    public function update(storeAndEditSupplier $request,$id){
         $supplier = Supplier::findOrFail($id);
+
+        $request->validate([
+            'name'=>'required|unique:suppliers|min:10',
+        ]);
 
         $supplier->update([
             'name' => $request->name,

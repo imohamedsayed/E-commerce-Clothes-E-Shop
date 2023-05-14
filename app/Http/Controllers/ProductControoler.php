@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\storeAndEditProduct;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class ProductControoler extends Controller
     }
 
 
-    public function insert(Request $request)
+    public function insert(storeAndEditProduct $request)
     {
         Product::create([
             'category_id' => $request->catID,
@@ -62,7 +63,7 @@ class ProductControoler extends Controller
 
     }
 
-    public function update(Request $request,$id)
+    public function update(storeAndEditProduct $request,$id)
     {
         $product = Product::findOrFail($id);
         $product->update([
