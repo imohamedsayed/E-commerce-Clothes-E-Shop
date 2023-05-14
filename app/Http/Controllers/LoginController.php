@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\DB;
 class LoginController extends Controller
 {
     public  function  index(){
+        if(!is_array(session()->get('cart'))){
+            session()->put('cart',[]);
+        }
         $categories = DB::table('categories')->get();
         $trending = DB::select('SELECT products.*,categories.name  FROM `products`join categories on products.category_id = categories.id order by sales desc  limit 5');
 

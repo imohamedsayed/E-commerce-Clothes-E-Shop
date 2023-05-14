@@ -181,86 +181,86 @@
         --- End Categoris
       -->
       <div class="main col-lg-9 col-12">
-        <div class="second-header pt-3 pb-3">
-          <div class="container">
-            <div class="row text-center align-items-center">
-              <div class="logo col-md-2 col-12">
-                <h1 id="mainLogo">MSO</h1>
-              </div>
-              <div
-                    class="Search col-lg-7 col-md-10 col-12 d-flex align-items-center"
-                >
-                    <form action="{{route('search')}}" method="post" class="w-100 d-flex mt-4 mt-md-2" >
+          <div class="second-header pt-3 pb-3">
+              <div class="container">
+                  <div class="row text-center align-items-center">
+                      <div class="logo col-md-2 col-12">
+                          <h1 id="mainLogo">MSO</h1>
+                      </div>
+                      <div
+                          class="Search col-lg-7 col-md-10 col-12 d-flex align-items-center"
+                      >
+                          <form action="{{route('search')}}" method="post" class="w-100 d-flex mt-4 mt-md-2" >
 
-                        @csrf
+                              @csrf
 
-                        <div class="row align-items-center">
-                            <div class="col-12 col-md-6 col-lg-4 mb-2">
-                                <input
-                                    type="search"
-                                    class="form-control"
-                                    placeholder="Enter Product Name"
-                                    name="pName"
-                                />
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 mb-2">
-                                <input
-                                    type="search"
-                                    class="form-control"
-                                    placeholder="Enter Category "
-                                    name="pCat"
-                                />
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 mb-2">
-                                <input
-                                    type="search"
-                                    class="form-control"
-                                    placeholder="Enter Supplier Name"
-                                    name="pSup"
-                                />
-                            </div>
-                        </div>
+                              <div class="row align-items-center">
+                                  <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                      <input
+                                          type="search"
+                                          class="form-control"
+                                          placeholder="Enter Product Name"
+                                          name="pName"
+                                      />
+                                  </div>
+                                  <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                      <input
+                                          type="search"
+                                          class="form-control"
+                                          placeholder="Enter Category "
+                                          name="pCat"
+                                      />
+                                  </div>
+                                  <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                      <input
+                                          type="search"
+                                          class="form-control"
+                                          placeholder="Enter Supplier Name"
+                                          name="pSup"
+                                      />
+                                  </div>
+                              </div>
 
-                        <button class="btn ms-2" type="submit"
-                        ><i class="fa-solid p-2 fa-magnifying-glass"></i
-                            ></button>
-                    </form>
-                </div>
-              <div class="navs col-lg-3 d-lg-block d-none">
-                <a class="btn rounded-circle" href="#"
-                  ><i class="fa-regular fa-user"></i
-                ></a>
-                <a class="btn rounded-circle" href="#">
-                  <i class="fa-regular fa-heart"></i>
-                  <span class="count">0</span>
-                </a>
-                <a class="btn rounded-circle" href="#"
-                  ><i class="fa-solid fa-cart-shopping"></i>
-                  <span class="count">0</span>
-                </a>
-              </div>
-            </div>
-              <div class="navBar pt-3 pb-3 text-center d-none d-md-block">
-                  <ul class="list-unstyled gap-3 align-items-center" >
-                      <li><a  href="{{route('home')}}" class="text-uppercase nav-link">Home</a></li>
-                      <li><a href="" class="text-uppercase nav-link">Men's</a></li>
-                      <li><a href="" class="text-uppercase nav-link">Women's</a></li>
-                      <li><a href="" class="text-uppercase nav-link">Testimonials</a></li>
-                      <li><a href="" class="text-uppercase nav-link">offers</a></li>
-                      <li><a href="" class="text-uppercase nav-link">Blog</a></li>
-                      @if( auth()->user())
-                          <li><a href="{{route('logoutUser')}}"><button class="btn btn-danger">Log out</button></a></li>
-                          @if(auth()->user()->role=='admin')
-                              <li><a href="{{route('dashboard')}}"> <button class="btn btn-warning">Admin Panel</button></a></li>
+                              <button class="btn ms-2" type="submit"
+                              ><i class="fa-solid p-2 fa-magnifying-glass"></i
+                                  ></button>
+                          </form>
+                      </div>
+                      <div class="navs col-lg-3 d-lg-block d-none">
+                          <a class="btn rounded-circle" href="#"
+                          ><i class="fa-regular fa-user"></i
+                              ></a>
+                          <a class="btn rounded-circle" href="#">
+                              <i class="fa-regular fa-heart"></i>
+                              <span class="count">0</span>
+                          </a>
+                          <a class="btn rounded-circle" href="{{route('cart')}}"
+                          ><i class="fa-solid fa-cart-shopping"></i>
+                              <span class="count">{{count(session()->get('cart'))}}</span>
+                          </a>
+                      </div>
+                  </div>
+                  <div class="navBar pt-3 pb-3 text-center d-none d-md-block">
+                      <ul class="list-unstyled gap-3 align-items-center" >
+                          <li><a  href="{{route('home')}}" class="text-uppercase nav-link">Home</a></li>
+                          <li><a href="" class="text-uppercase nav-link">Men's</a></li>
+                          <li><a href="" class="text-uppercase nav-link">Women's</a></li>
+                          <li><a href="" class="text-uppercase nav-link">Testimonials</a></li>
+                          <li><a href="" class="text-uppercase nav-link">offers</a></li>
+                          <li><a href="" class="text-uppercase nav-link">Blog</a></li>
+                          @if( auth()->user())
+                              <li><a href="{{route('logoutUser')}}"><button class="btn btn-danger">Log out</button></a></li>
+                              @if(auth()->user()->role=='admin')
+                                  <li><a href="{{route('dashboard')}}"> <button class="btn btn-warning">Admin Panel</button></a></li>
+                              @endif
+                          @else
+                              <li><a href="{{route('login')}}"><button class="btn btn-info">Login</button></a></li>
+                              <li><a href="{{route('signup')}}"><button class="btn btn-secondary">Signup</button></a></li>
                           @endif
-                      @else
-                          <li><a href="{{route('login')}}"><button class="btn btn-info">Login</button></a></li>
-                          <li><a href="{{route('signup')}}"><button class="btn btn-secondary">Signup</button></a></li>
-                      @endif
-                  </ul>
+                      </ul>
+                  </div>
               </div>
           </div>
-        </div>
         <div class="container">
           <!--Start Products Cards-->
           <div class="products mt-5">
@@ -300,11 +300,12 @@
                                     @else
                                         <p><b>${{$product->price}}</b></p>
                                     @endif
+                                    <a href="{{route('addCart',$product->id)}}" class="btn btn-primary">Add to Cart</a>
                                     <div class="card-opt">
                                         <p><i class="fa-regular fa-heart"></i></p>
                                         <p><i class="fa-regular fa-eye"></i></p>
                                         <p><i class="fa-solid fa-arrow-right-arrow-left"></i></p>
-                                        <p><i class="fa-solid fa-cart-plus"></i></p>
+                                        <p><a href="{{route('addCart',$product->id)}}"><i class="fa-solid fa-cart-plus"></i></a></p>
                                     </div>
                                 </div>
                             </div>

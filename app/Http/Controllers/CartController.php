@@ -14,6 +14,8 @@ class CartController extends Controller
         $categories = DB::table('categories')->get();
         $trending = DB::select('SELECT products.*,categories.name  FROM `products`join categories on products.category_id = categories.id order by sales desc  limit 5');
 
+
+
         $items = [];
         if(count(session()->get('cart')) > 0){
             foreach (session()->get('cart') as $id=>$qty){

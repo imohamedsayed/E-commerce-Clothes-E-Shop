@@ -148,3 +148,15 @@ p.total_money::after{
     outline: none;
     transform: scale(1.05);
 }
+
+.completed{
+    text-align: center;
+}
+.completed .circle_done{
+    color: #318b28;
+    font-size:9rem;
+}
+.completed .completed_message{
+    color: var(--text-black-900);
+    font-size: 2rem;
+}

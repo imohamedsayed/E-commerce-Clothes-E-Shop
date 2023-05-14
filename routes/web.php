@@ -115,6 +115,7 @@ route::controller(\App\Http\Controllers\CartController::class)->group(function()
 route::controller(\App\Http\Controllers\PurchaseController::class)->group(function (){
     route::get("/confirm_order",'customerInfoPage')->name('completeOrder');
     route::post('/buy','completePurchase')->middleware(['auth'])->name('buy');
+    route::get('/order_done','doneOrder')->middleware(['auth'])->name('orderDone');
 });
 
 

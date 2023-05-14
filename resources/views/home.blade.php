@@ -336,7 +336,7 @@
                         @else
                          <p><b>${{$product->price}}</b></p>
                      @endif
-                      <a href="#" class="btn btn-outline-secondary"><i class="fa-solid fa-cart-plus"></i></a>
+                      <a href="{{route('addCart',$product->id)}}" class="btn btn-outline-secondary"><i class="fa-solid fa-cart-plus"></i></a>
                   </div>
               </div>
               @endforeach
@@ -369,7 +369,7 @@
                             @else
                                 <p><b>${{$product->price}}</b></p>
                             @endif
-                            <a href="#" class="btn btn-outline-secondary"><i class="fa-solid fa-cart-plus"></i></a>
+                            <a href="{{route('addCart',$product->id)}}" class="btn btn-outline-secondary"><i class="fa-solid fa-cart-plus"></i></a>
                         </div>
                     </div>
                 @endforeach
@@ -400,7 +400,7 @@
                             @else
                                 <p><b>${{$product->price}}</b></p>
                             @endif
-                            <a href="#" class="btn btn-outline-secondary"><i class="fa-solid fa-cart-plus"></i></a>
+                            <a href="{{route('addCart',$product->id)}}" class="btn btn-outline-secondary"><i class="fa-solid fa-cart-plus"></i></a>
                         </div>
                     </div>
                 @endforeach
@@ -508,7 +508,7 @@
                                 @else
                                     <p><b>${{$product->price}}</b></p>
                                 @endif
-                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                                <a href="{{route('addCart',$product->id)}}" class="btn btn-primary">Add to Cart</a>
                                 <div class="card-opt">
                                     <p><i class="fa-regular fa-heart"></i></p>
                                     <p><i class="fa-regular fa-eye"></i></p>

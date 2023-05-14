@@ -215,9 +215,9 @@
                     <i class="fa-regular fa-heart"></i>
                     <span class="count">0</span>
                 </a>
-                <a class="btn rounded-circle" href="#"
+                <a class="btn rounded-circle" href="{{route('cart')}}"
                 ><i class="fa-solid fa-cart-shopping"></i>
-                    <span class="count">0</span>
+                    <span class="count">{{count(session()->get('cart'))}}</span>
                 </a>
             </div>
         </div>

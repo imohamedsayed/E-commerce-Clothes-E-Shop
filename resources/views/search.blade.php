@@ -234,9 +234,9 @@
                             <i class="fa-regular fa-heart"></i>
                             <span class="count">0</span>
                         </a>
-                        <a class="btn rounded-circle" href="#"
+                        <a class="btn rounded-circle" href="{{route('cart')}}"
                         ><i class="fa-solid fa-cart-shopping"></i>
-                            <span class="count">0</span>
+                            <span class="count">{{count(session()->get('cart'))}}</span>
                         </a>
                     </div>
                 </div>
@@ -300,11 +300,12 @@
                                         @else
                                             <p><b>${{$product->price}}</b></p>
                                         @endif
+                                        <a href="{{route('addCart',$product->id)}}" class="btn btn-primary">Add to Cart</a>
                                         <div class="card-opt">
                                             <p><i class="fa-regular fa-heart"></i></p>
                                             <p><i class="fa-regular fa-eye"></i></p>
                                             <p><i class="fa-solid fa-arrow-right-arrow-left"></i></p>
-                                            <p><i class="fa-solid fa-cart-plus"></i></p>
+                                            <p><a href="{{route('addCart',$product->id)}}"><i class="fa-solid fa-cart-plus"></i></a></p>
                                         </div>
                                     </div>
                                 </div>

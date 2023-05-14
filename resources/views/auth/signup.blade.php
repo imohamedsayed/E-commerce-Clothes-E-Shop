@@ -215,9 +215,9 @@
                         <i class="fa-regular fa-heart"></i>
                         <span class="count">0</span>
                     </a>
-                    <a class="btn rounded-circle" href="#"
+                    <a class="btn rounded-circle" href="{{route('cart')}}"
                     ><i class="fa-solid fa-cart-shopping"></i>
-                        <span class="count">0</span>
+                        <span class="count">{{count(session()->get('cart'))}}</span>
                     </a>
                 </div>
             </div>
@@ -253,24 +253,37 @@
                             @csrf
                             <div class="form-group">
                                 <label for="inputName">Name</label>
-                                <input type="text" class="form-control" id="inputName" placeholder="Enter your name" name="name">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="inputName" placeholder="Enter your name" name="name" value="{{old('name')}}">
+                                @error('name')
+                                <p class="text-danger">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="inputEmail">Email address</label>
-                                <input type="email" class="form-control" id="inputEmail" placeholder="Enter email" name="email">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="inputEmail" placeholder="Enter email" name="email" value="{{old('email')}}">
+                                @error('name')
+                                <p class="text-danger">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword">Password</label>
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
+                                <input type="password" class="form-control @error('password') is-invalid @enderror"  id="inputPassword" placeholder="Password" name="password" value="{{old('password')}}">
+                                @error('password')
+                                <p class="text-danger">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="inputConfirmPassword">Confirm Password</label>
-                                <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password" name="password_confirm">
+                                <input type="password" class="form-control  @error('password') is-invalid @enderror" id="inputConfirmPassword" placeholder="Confirm Password" name="password_confirmation">
+
                             </div>
                             <div class="form-group form-check align-items-center d-flex gap-2 mt-2">
-                                <input type="checkbox" class="form-check-input" id="agreeToTerms">
+                                <input type="checkbox" class="form-check-input  @error('terms') is-invalid @enderror" id="agreeToTerms" name="terms">
                                 <label class="form-check-label text-muted fw-normal" for="agreeToTerms">I agree to the terms and conditions</label>
                             </div>
+                            @error('terms')
+                                <p class="alert alert-danger">{{$message}}</p>
+                            @enderror
                             <div class="text-center mt-5">
                                 <button type="submit" class="btn btn-info btn-block">Sign Up</button>
                             </div>

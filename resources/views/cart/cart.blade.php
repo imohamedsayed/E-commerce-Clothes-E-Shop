@@ -290,7 +290,6 @@
                                 </div>
                                 <div class="product-details ">
                                     <h3>{{$item->title}}</h3>
-                                    <p>Jackets</p>
                                     <p style="font-size: 24px; color: gold">
                                         @for($i=0;$i<5;$i++)
                                             @if($i < $item->rate)

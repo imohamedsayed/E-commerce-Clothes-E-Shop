@@ -265,48 +265,10 @@
         </div>
         <div class="container">
             <!--Start Cart Content-->
-            <h4
-                class="groupTitle pb-3 mb-5"
-                style="border-bottom: 1px solid rgba(128, 128, 128, 0.198)"
-            >
-                <i class="fa-solid fa-wallet me-2"></i> Confirm Order
-            </h4>
-
-            <div class="confirm_form mb-5">
-                <form method="post" action="{{route('buy')}}">
-                    @csrf
-                    <div class="form-field d-flex justify-content-between align-items-center">
-                        <label><i class="fa-solid fa-home me-2"> </i>Address  </label>
-                        <input type="text" name="address" value="{{old('address')}}" class="@error('address') is-invalid @enderror"/>
-
-                    </div>
-                    @error('address')
-                    <br>
-                    <p class="alert alert-danger text-center">{{$message}}</p>
-                    @enderror
-                    <div class="form-field d-flex justify-content-between align-items-center">
-                        <label><i class="fa-solid fa-phone me-2"> </i>Phone   </label>
-                        <input type="text" name="phone" value="{{old('phone')}}" class="@error('phone') is-invalid @enderror"/>
-
-                    </div>
-                    @error('phone')
-                    <br>
-                    <p class="alert alert-danger text-center">{{$message}}</p>
-                    @enderror
-                    <div class="form-field d-flex justify-content-between align-items-center">
-                        <label><i class="fa-solid fa-credit-card me-2"> </i>Credit Card  </label>
-                        <input type="text" name="credit" value="{{old('credit')}}" class="@error('credit') is-invalid @enderror"/>
-
-                    </div>
-                    @error('credit')
-                    <br>
-                    <p class="alert alert-danger text-center">{{$message}}</p>
-                    @enderror
-                    <div class="text-center mt-4">
-                        <button class="btn btn-primary" type="submit"><i class="fa-solid fa-check-double me-2"></i>Confirm Order</button>
-                    </div>
-                </form>
-
+            <div class="completed my-5">
+                <p class="circle_done"><i class="fa-regular fa-circle-check"></i></p>
+                <p class="completed_message">Thanks <b>{{auth()->user()->name}}</b> for purchasing from us.</p>
+                <a href="{{route('home')}}" class="btn btn-success">Return Home</a>
             </div>
 
         </div>
@@ -439,3 +401,4 @@
 <script src="{{asset('assets/js/basic.js')}}"></script>
 </body>
 </html>
+
